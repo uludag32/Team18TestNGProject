@@ -10,17 +10,16 @@ public SpendingGood_HomePage(){
     PageFactory.initElements(Driver.getDriver(),this);
 }
 
-@FindBy(xpath="//a[@class='register inline-type']")
-    public WebElement Register;
+@FindBy(xpath="(//span[text()='Sign In '])[1]")
+    public WebElement Sign_In;
 
-@FindBy(linkText = "//a[text()='Become a Vendor']\n")
-    public WebElement Become_a_Vendor;
+@FindBy(linkText = "//input[@id='username']")
+    public WebElement userEmail;
 
-@FindBy(xpath = "//input[@id='wcfm_membership_register_button']\n")
-    public WebElement Register_Onay;
+@FindBy(xpath = "//button[@name='login']")
+    public WebElement SignIN;
 
-@FindBy(linkText = "//a[text()='Not right now']")
-    public WebElement Store_Setup;
+
 
 @FindBy(linkText = "//a[text()='Log out']\n")
     public WebElement logoutLink;

@@ -16,8 +16,12 @@ public class US12Test {
         Driver.getDriver().get(ConfigReader.getProperty("spending_Good_Url"));
        spendingGood_homePage=new SpendingGood_HomePage();
        spendingGood_loginPage=new SpendingGood_LoginPage();
-       spendingGood_homePage.Register.click();
+       spendingGood_homePage.Sign_In.click();
         ReusableMethods.waitFor(2);
+        spendingGood_homePage.userEmail.sendKeys("vendor_email");
+        spendingGood_loginPage.password.sendKeys(("vendor_password"));
+        spendingGood_homePage.SignIN.click();
+
 
 
 
