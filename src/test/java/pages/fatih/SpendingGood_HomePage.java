@@ -13,7 +13,11 @@ public SpendingGood_HomePage(){
 @FindBy(xpath="(//span[text()='Sign In '])[1]")
     public WebElement Sign_In;
 
+<<<<<<< HEAD:src/test/java/pages/fatih/SpendingGood_HomePage.java
 @FindBy(id = "username")
+=======
+@FindBy(linkText = "//input[@id='username']")
+>>>>>>> Fatih:src/test/java/tests/US12/SpendingGood_HomePage.java
     public WebElement userName;
 
 @FindBy(xpath = "//button[@name='login']")
