@@ -1,9 +1,11 @@
 package tests.US12;
 
 import org.testng.annotations.Test;
+import pages.fatih.SpendingGood_HomePage;
+import pages.fatih.SpendingGood_LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
+
 
 
 public class US12Test {
@@ -17,9 +19,8 @@ public class US12Test {
        spendingGood_homePage=new SpendingGood_HomePage();
        spendingGood_loginPage=new SpendingGood_LoginPage();
        spendingGood_homePage.Sign_In.click();
-        ReusableMethods.waitFor(2);
-        spendingGood_homePage.userEmail.sendKeys("vendor_email");
-        spendingGood_loginPage.password.sendKeys(("vendor_password"));
+        spendingGood_homePage.userName.sendKeys(ConfigReader.getProperty("vendor_username"));
+        spendingGood_loginPage.password.sendKeys(ConfigReader.getProperty("vendor_password"));
         spendingGood_homePage.SignIN.click();
 
 

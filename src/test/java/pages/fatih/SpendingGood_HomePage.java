@@ -1,4 +1,4 @@
-package tests.US12;
+package pages.fatih;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,8 +13,8 @@ public SpendingGood_HomePage(){
 @FindBy(xpath="(//span[text()='Sign In '])[1]")
     public WebElement Sign_In;
 
-@FindBy(linkText = "//input[@id='username']")
-    public WebElement userEmail;
+@FindBy(id = "username")
+    public WebElement userName;
 
 @FindBy(xpath = "//button[@name='login']")
     public WebElement SignIN;
