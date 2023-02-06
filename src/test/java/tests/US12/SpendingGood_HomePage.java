@@ -14,7 +14,7 @@ public SpendingGood_HomePage(){
     public WebElement Sign_In;
 
 @FindBy(linkText = "//input[@id='username']")
-    public WebElement userEmail;
+    public WebElement userName;
 
 @FindBy(xpath = "//button[@name='login']")
     public WebElement SignIN;
