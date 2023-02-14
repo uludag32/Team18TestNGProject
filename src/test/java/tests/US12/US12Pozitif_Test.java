@@ -25,8 +25,8 @@ public class US12Pozitif_Test {
         spendingGood_loginPage = new SpendingGood_LoginPage();
         spendingGood_homePage.Sign_In.click();
 
-        spendingGood_homePage.username.sendKeys(ConfigReader.getProperty("Firstname"));
-        spendingGood_homePage.password.sendKeys(ConfigReader.getProperty("Lastname"));
+        spendingGood_homePage.username.sendKeys(ConfigReader.getProperty("vendor_email"));
+        spendingGood_homePage.password.sendKeys(ConfigReader.getProperty("vendor_password"));
         spendingGood_homePage.SignIN.click();
         ReusableMethods.verifyElementDisplayed(spendingGood_homePage.username);
         ReusableMethods.waitFor(3);
@@ -37,17 +37,21 @@ public class US12Pozitif_Test {
         ReusableMethods.waitFor(5);
 
         Actions actions=new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        actions.sendKeys(Keys.PAGE_UP).perform();
+
 
         spendingGood_loginPage.Addresses.click();
         ReusableMethods.waitFor(10);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
-        ReusableMethods.waitFor(7);
+        ReusableMethods.waitFor(10);
+
+
 
         spendingGood_loginPage.Add.click();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
 
 //        spendingGood_loginPage.Edit_Your_Billing_Adress.click();
         ReusableMethods.waitFor(4);
@@ -57,7 +61,8 @@ public class US12Pozitif_Test {
         spendingGood_loginPage.Firstname.clear();
         spendingGood_loginPage.Firstname.sendKeys(ConfigReader.getProperty("Firstname"));
         ReusableMethods.waitFor(5);
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+   ;
 
 
         spendingGood_loginPage.Lastname.clear();
@@ -65,9 +70,10 @@ public class US12Pozitif_Test {
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Company_name.clear();
-        spendingGood_loginPage.Company_name.sendKeys("Osmaniye",Keys.ENTER);
+        spendingGood_loginPage.Company_name.sendKeys(ConfigReader.getProperty("Company"));
+
+
         ReusableMethods.waitFor(5);
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
         spendingGood_loginPage.Country_Region1.click();
         ReusableMethods.waitFor(8);
@@ -76,41 +82,42 @@ public class US12Pozitif_Test {
 
 
         spendingGood_loginPage.billing_Street_address1.clear();
-        spendingGood_loginPage.billing_Street_address1.sendKeys("Kahta", Keys.ENTER);
+        spendingGood_loginPage.billing_Street_address1.sendKeys(ConfigReader.getProperty("Street_Adresses1"));
         ReusableMethods.waitFor(8);
 
-        actions.sendKeys(Keys.PAGE_UP).perform();
+
 
         spendingGood_loginPage.billing_Street_address2.clear();
-        spendingGood_loginPage.billing_Street_address2.sendKeys("A-Blok",Keys.ENTER);
+        spendingGood_loginPage.billing_Street_address2.sendKeys(ConfigReader.getProperty("A-Blok"));
 
         spendingGood_loginPage.Town_City.clear();
-        spendingGood_loginPage.Town_City.sendKeys("Urfa",Keys.ENTER);
+        spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Ankara"));
         ReusableMethods.waitFor(8);
 
 
 
         spendingGood_loginPage.Zip_Code.clear();
-        spendingGood_loginPage.shipping_Zip_Code1.sendKeys("123456",Keys.ENTER);
+        spendingGood_loginPage.Zip_Code.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
         ReusableMethods.waitFor(5);
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
 
         spendingGood_loginPage.Phone.clear();
-        spendingGood_loginPage.Phone.sendKeys("5449659897",Keys.ENTER);
+        spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone"));
         ReusableMethods.waitFor(10);
 
         //spendingGood_loginPage.State.click();
-        spendingGood_loginPage.State.sendKeys("Tocantis",Keys.ENTER);
+        spendingGood_loginPage.State.sendKeys("Tocantis",Keys.TAB);
 
         ReusableMethods.waitFor(5);
 
 
 
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.email);
-       // spendingGood_loginPage.Save_Address.click();
+        ReusableMethods.waitFor(5);
+        spendingGood_loginPage.Save_Address.click();
 
-        System.out.println(spendingGood_loginPage.error_message.getText());
+       // System.out.println(spendingGood_loginPage.error_message.getText());
 
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_END);
