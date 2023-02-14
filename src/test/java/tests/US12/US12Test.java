@@ -22,6 +22,7 @@ public class US12Test {
        spendingGood_loginPage=new SpendingGood_LoginPage();
        spendingGood_homePage.Sign_In.click();
 
+
         spendingGood_homePage.username.sendKeys(ConfigReader.getProperty("vendor_username"));
         spendingGood_homePage.password.sendKeys(ConfigReader.getProperty("vendor_password"));
         spendingGood_homePage.SignIN.click();
