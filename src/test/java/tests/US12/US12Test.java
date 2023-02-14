@@ -1,6 +1,6 @@
 package tests.US12;
 
-import org.openqa.selenium.WebElement;
+
 import org.testng.annotations.Test;
 import pages.fatih.SpendingGood_HomePage;
 import pages.fatih.SpendingGood_LoginPage;
