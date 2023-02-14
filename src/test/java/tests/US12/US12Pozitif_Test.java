@@ -106,6 +106,7 @@ public class US12Pozitif_Test {
         spendingGood_loginPage.Phone.clear();
         spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone"));
         ReusableMethods.waitFor(10);
+        ReusableMethods.waitFor(10);
 
         //spendingGood_loginPage.State.click();
         spendingGood_loginPage.State.sendKeys("Tocantis",Keys.TAB);
