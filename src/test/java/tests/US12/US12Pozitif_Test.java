@@ -93,10 +93,11 @@ public class US12Pozitif_Test {
         spendingGood_loginPage.Town_City.clear();
         spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Ankara"));
         ReusableMethods.waitFor(8);
-
+        ReusableMethods.waitFor(8);
 
 
         spendingGood_loginPage.Zip_Code.clear();
+
         spendingGood_loginPage.Zip_Code.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
         ReusableMethods.waitFor(5);
 
