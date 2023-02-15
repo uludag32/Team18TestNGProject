@@ -87,25 +87,6 @@ public class US12Negatif_Test01 {
         ReusableMethods.getScreenshot("Ekran Görüntüsü");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }
