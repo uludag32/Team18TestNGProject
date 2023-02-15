@@ -1,6 +1,6 @@
 package tests.US12;
 
-import org.openqa.selenium.WebElement;
+
 import org.testng.annotations.Test;
 import pages.fatih.SpendingGood_HomePage;
 import pages.fatih.SpendingGood_LoginPage;
@@ -21,6 +21,7 @@ public class US12Test {
        spendingGood_homePage=new SpendingGood_HomePage();
        spendingGood_loginPage=new SpendingGood_LoginPage();
        spendingGood_homePage.Sign_In.click();
+//şsldfmlsnls
 
         spendingGood_homePage.username.sendKeys(ConfigReader.getProperty("vendor_username"));
         spendingGood_homePage.password.sendKeys(ConfigReader.getProperty("vendor_password"));
