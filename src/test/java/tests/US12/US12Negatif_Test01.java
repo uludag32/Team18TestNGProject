@@ -70,7 +70,7 @@ public class US12Negatif_Test01 {
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Phone.clear();
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(7);
 
         spendingGood_loginPage.Save_Address.click();
 
