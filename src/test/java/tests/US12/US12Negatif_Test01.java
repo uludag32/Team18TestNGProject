@@ -1,6 +1,8 @@
 package tests.US12;
 
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.fatih.SpendingGood_HomePage;
 import pages.fatih.SpendingGood_LoginPage;
@@ -18,12 +20,15 @@ public class US12Negatif_Test01 {
 
     @Test
 
-    public void us12TC01() throws IOException, AWTException {
+    public void us12TC01() throws IOException {
         Driver.getDriver().get(ConfigReader.getProperty("spending_Good_Url"));
+
+        ReusableMethods.waitFor(10);
 
        spendingGood_homePage=new SpendingGood_HomePage();
        spendingGood_loginPage=new SpendingGood_LoginPage();
        spendingGood_homePage.Sign_In.click();
+       Actions actions=new Actions(Driver.getDriver());
 
         spendingGood_homePage.username.sendKeys(ConfigReader.getProperty("vendor_username"));
         spendingGood_homePage.password.sendKeys(ConfigReader.getProperty("vendor_password"));
@@ -57,29 +62,32 @@ public class US12Negatif_Test01 {
 //        spendingGood_loginPage.Country_Region1.clear();
 //        ReusableMethods.waitFor(5);
 
+
         spendingGood_loginPage.billing_Street_address1.clear();
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Town_City.clear();
         ReusableMethods.waitFor(5);
 
-//        spendingGood_loginPage.State.clear();
-//        ReusableMethods.waitFor(5);
+        spendingGood_loginPage.State.clear();
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Zip_Code.clear();
         ReusableMethods.waitFor(5);
 
+
         spendingGood_loginPage.Phone.clear();
-        ReusableMethods.waitFor(7);
-
-        spendingGood_loginPage.Save_Address.click();
-
-        //Assert.assertEquals(spendingGood_loginPage.Error_message_1.getText(),"User with email fake@bluerentalcars.com not found")
-        ReusableMethods.waitFor(2);
-   //  Logger.getLogger(spendingGood_loginPage.error_message.getText());
+        ReusableMethods.waitFor(5);
 
 
-        System.out.println(spendingGood_loginPage.error_message.getText());
+
+
+        spendingGood_loginPage.Save_Address.submit();
+        ReusableMethods.waitFor(3);
+        spendingGood_loginPage.Scrollbar.click();
+        spendingGood_loginPage.Scrollbar.click();
+
+    System.out.println(spendingGood_loginPage.error_message.getText());
 
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_END);

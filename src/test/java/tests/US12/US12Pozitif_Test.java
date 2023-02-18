@@ -80,20 +80,25 @@ public class US12Pozitif_Test {
         spendingGood_loginPage.Country_Region2.click();
         ReusableMethods.waitFor(8);
 
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
 
         spendingGood_loginPage.billing_Street_address1.clear();
-        spendingGood_loginPage.billing_Street_address1.sendKeys(ConfigReader.getProperty("Street_Adresses1"));
+        spendingGood_loginPage.billing_Street_address1.sendKeys(ConfigReader.getProperty("Street_Adresses"));
         ReusableMethods.waitFor(8);
 
 
 
         spendingGood_loginPage.billing_Street_address2.clear();
-        spendingGood_loginPage.billing_Street_address2.sendKeys(ConfigReader.getProperty("A-Blok"));
+        spendingGood_loginPage.billing_Street_address2.sendKeys(ConfigReader.getProperty("ApartmanSuit"));
+        ReusableMethods.waitFor(8);
+
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
         spendingGood_loginPage.Town_City.clear();
-        spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Ankara"));
+        spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Town_City"));
         ReusableMethods.waitFor(8);
-        ReusableMethods.waitFor(8);
+
 
 
         spendingGood_loginPage.Zip_Code.clear();
@@ -102,16 +107,18 @@ public class US12Pozitif_Test {
         ReusableMethods.waitFor(5);
 
 
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
         spendingGood_loginPage.Phone.clear();
         spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone"));
         ReusableMethods.waitFor(10);
 
-
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         //spendingGood_loginPage.State.click();
         spendingGood_loginPage.State.sendKeys("Tocantis",Keys.TAB);
 
         ReusableMethods.waitFor(7);
+
 
 
 
