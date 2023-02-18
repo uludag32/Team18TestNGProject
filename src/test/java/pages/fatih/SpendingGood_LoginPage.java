@@ -18,7 +18,7 @@ public class SpendingGood_LoginPage {
     public WebElement error_message;
 
     @FindBy(linkText = "//a[text()='My Account']")
-    public WebElement My_Accounr;
+    public WebElement My_Account;
 
     @FindBy(linkText = "//a[text()='Addresses']")
     public WebElement Adresses;
