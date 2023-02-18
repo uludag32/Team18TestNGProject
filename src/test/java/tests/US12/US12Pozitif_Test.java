@@ -111,7 +111,7 @@ public class US12Pozitif_Test {
         //spendingGood_loginPage.State.click();
         spendingGood_loginPage.State.sendKeys("Tocantis",Keys.TAB);
 
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(7);
 
 
 
