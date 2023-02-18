@@ -152,6 +152,7 @@ public class ReusableMethods {
             }
         } else {
             if (element.isSelected()) {
+
                 element.click();
             }
         }
