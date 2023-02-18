@@ -101,6 +101,10 @@ public class SpendingGood_LoginPage {
     @FindBy(xpath = "//button[@name='save_address']")
     public WebElement Save_Address;
 
+    @FindBy(xpath = "//html[@lang='en-US']")
+
+    public WebElement Scrollbar;
+
 
 
 

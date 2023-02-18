@@ -49,7 +49,7 @@ import java.io.IOException;
             spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone1"));
             ReusableMethods.waitFor(5);
 
-            spendingGood_loginPage.Save_Address.click();
+            spendingGood_loginPage.Save_Address.submit();
 
             //Assert.assertEquals(spendingGood_loginPage.Error_message_1.getText(),"User with email fake@bluerentalcars.com not found")
             ReusableMethods.waitFor(2);
