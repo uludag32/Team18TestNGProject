@@ -11,7 +11,7 @@ import java.awt.*;
 import java.io.IOException;
 
 
-    public class US12NegatifTest02 {
+    public class C_US12NegatifTest {
         SpendingGood_HomePage spendingGood_homePage;
         SpendingGood_LoginPage spendingGood_loginPage;
 

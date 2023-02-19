@@ -10,11 +10,10 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.awt.*;
 import java.io.IOException;
 
 
-public class US12Negatif_Test01 {
+public class D_US12Negatif_Test {
     SpendingGood_HomePage spendingGood_homePage;
     SpendingGood_LoginPage spendingGood_loginPage;
 
@@ -66,14 +65,18 @@ public class US12Negatif_Test01 {
         spendingGood_loginPage.billing_Street_address1.clear();
         ReusableMethods.waitFor(5);
 
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Town_City.clear();
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.State.clear();
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(10);
 
         spendingGood_loginPage.Zip_Code.clear();
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(10);
 
 
         spendingGood_loginPage.Phone.clear();
