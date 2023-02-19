@@ -75,7 +75,11 @@ public class D_US12Negatif_Test {
         spendingGood_loginPage.State.clear();
         ReusableMethods.waitFor(10);
 
+
         spendingGood_loginPage.billing_Zip_Code1.clear();
+
+        spendingGood_loginPage.Billing_Zip_Code.clear();
+
         ReusableMethods.waitFor(10);
 
 
@@ -87,8 +91,7 @@ public class D_US12Negatif_Test {
 
         spendingGood_loginPage.Save_Address.submit();
         ReusableMethods.waitFor(3);
-        spendingGood_loginPage.Scrollbar.click();
-        spendingGood_loginPage.Scrollbar.click();
+       actions.keyUp(Keys.PAGE_UP);
 
     System.out.println(spendingGood_loginPage.error_message.getText());
 
