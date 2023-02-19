@@ -17,8 +17,6 @@ public class SpendingGood_LoginPage {
     @FindBy(xpath = "//ul[@role='alert']")
     public WebElement error_message;
 
-    @FindBy(xpath = "//ul[@role='alert']")
-    public WebElement error_message1;
 
     @FindBy(xpath = "(//a[@href='https://spendinggood.com/my-account-2/'])[1]")
     public WebElement My_Account;
@@ -65,7 +63,7 @@ public class SpendingGood_LoginPage {
 
 
     @FindBy(xpath = "//input[@id='billing_postcode']")
-    public WebElement Zip_Code;
+    public WebElement Billing_Zip_Code;
 
 
     @FindBy(xpath = "//input[@id='billing_phone']")
@@ -85,40 +83,49 @@ public class SpendingGood_LoginPage {
 
    //Shipping Locate' leri
 
-    @FindBy(linkText = "(//A[@class='edit btn btn-link btn-primary btn-underline mb-4'])[2]")
-    public WebElement ADD;
-
-    @FindBy(linkText = "//a[text()='Add']")
-    public WebElement lastname;
-
-    @FindBy(xpath = "//input[@id='shipping_first_name']")
-    public WebElement Firstname1;
+    @FindBy(xpath = "(//a[@class='edit btn btn-link btn-primary btn-underline mb-4'])[2]")
+    public WebElement Edit_Your_Shipping_Adress;
 
     @FindBy(xpath = "//input[@id='shipping_last_name']")
-    public WebElement shipping_Lastname;
+    public WebElement Shipping_lastname;
+
+    @FindBy(xpath = "//input[@id='shipping_first_name']")
+    public WebElement Shipping_Firstname1;
+
 
     @FindBy(xpath = "//input[@id='shipping_company']")
     public WebElement shipping_Company_name;
 
-    @FindBy(xpath = "//span[@class='select2-selection__placeholder']")
-    public WebElement shipping_Country_Region;
+    @FindBy(xpath = "//span[@class='select2-selection__arrow']")
+    public WebElement shipping_Country_Region0;
 
-    @FindBy(xpath = "//input[@id='shipping_address_02']']")
-    public WebElement shipping_States_adress_1;
+    @FindBy(xpath = "//li[@id='select2-shipping_country-result-t2rv-AS']")
+    public WebElement shipping_Country_Region01;
+
+    @FindBy(xpath = "//input[@id='shipping_address_1']")
+    public WebElement shipping_Street_adress_1;
 
     @FindBy(xpath = "//input[@id='shipping_address_2']")
-    public WebElement shipping_States_adress_03;
+    public WebElement shipping_Street_adress_2;
+
+    @FindBy(xpath = "//input[@id='shipping_state']")
+    public WebElement Shipping_State_County;
 
     @FindBy(xpath = "//input[@id='shipping_city']")
-    public WebElement shippin_Town_City;
+    public WebElement shipping_Town_City;
 
 
-    @FindBy(xpath = "//input[@id='billing_postcode']")
+    @FindBy(xpath = "//input[@id='shipping_postcode']")
     public WebElement shipping_Zip_Code1;
 
     @FindBy(xpath = "//button[@name='save_address']")
-    public WebElement Save_Adress1;
+    public WebElement SHIPPING_SAVE_ADRESS;
 
+    @FindBy(xpath = "//ul[@role='alert']")
+    public WebElement error_message1;
+
+    @FindBy(xpath = "//div[@class='woocommerce-notices-wrapper']")
+    public WebElement successfully_message;
     @FindBy(xpath = "//a[text()='Dashboard']")
     public WebElement dashboard;
 
