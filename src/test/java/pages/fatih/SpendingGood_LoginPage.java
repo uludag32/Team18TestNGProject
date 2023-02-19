@@ -63,7 +63,8 @@ public class SpendingGood_LoginPage {
     @FindBy(xpath = "//input[@id='billing_city']")
     public WebElement Town_City;
 
-
+    @FindBy(xpath = "//input[@id='billing_postcode']")
+    public WebElement billing_Zip_Code1;
     @FindBy(xpath = "(//span[@class='select2-selection__placeholder'])[2]")
     public WebElement State;
 
