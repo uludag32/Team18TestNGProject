@@ -14,14 +14,12 @@ public class SpendingGood_LoginPage {
    //Billing Locate'leri
 
 
-    @FindBy(xpath = "//div[@role='alert']")
+    @FindBy(xpath = "//ul[@role='alert']")
     public WebElement error_message;
 
-    @FindBy(linkText = "//a[text()='My Account']")
+    @FindBy(xpath = "(//*[.='My Account'])[1]")
     public WebElement My_Account;
 
-    @FindBy(linkText = "//a[text()='Addresses']")
-    public WebElement Adresses;
 
     @FindBy(linkText = "//a[text()='Add']")
     public WebElement Add;
@@ -64,15 +62,8 @@ public class SpendingGood_LoginPage {
     public WebElement Town_City;
 
 
-    @FindBy(xpath = "(//span[@class='select2-selection__placeholder'])[2]")
+    @FindBy(xpath = "//input[@id='billing_state']")
     public WebElement State;
-
-
-
-
-    @FindBy(xpath = "//span[@class='select2-search select2-search--dropdown']")
-    public WebElement State1;
-
 
 
     @FindBy(xpath = "//input[@id='billing_postcode']")

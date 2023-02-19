@@ -37,8 +37,8 @@ public class A_US12Pozitif_Test {
 
         Actions actions=new Actions(Driver.getDriver());
 
-        actions.sendKeys(Keys.PAGE_UP).perform();
-        actions.sendKeys(Keys.PAGE_UP).perform();
+        actions.keyDown(Keys.PAGE_UP).perform();
+        actions.keyDown(Keys.PAGE_UP).perform();
 
 
         spendingGood_loginPage.Addresses.click();
@@ -48,11 +48,11 @@ public class A_US12Pozitif_Test {
 
 
 
-        spendingGood_loginPage.Add.click();
-        ReusableMethods.waitFor(5);
+        //spendingGood_loginPage.Add.click();
+       // ReusableMethods.waitFor(5);
 
 
-//        spendingGood_loginPage.Edit_Your_Billing_Adress.click();
+        spendingGood_loginPage.Edit_Your_Billing_Adress.click();
         ReusableMethods.waitFor(4);
         // ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Edit_Your_Billing_Adress);
 
@@ -92,27 +92,26 @@ public class A_US12Pozitif_Test {
         spendingGood_loginPage.billing_Street_address2.sendKeys(ConfigReader.getProperty("ApartmanSuit"));
         ReusableMethods.waitFor(8);
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.keyDown(Keys.PAGE_DOWN).perform();
 
         spendingGood_loginPage.Town_City.clear();
         spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Town_City"));
         ReusableMethods.waitFor(8);
 
-
-
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        spendingGood_loginPage.Phone.clear();
-        spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone"));
-        ReusableMethods.waitFor(10);
-
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
-        //spendingGood_loginPage.State.click();
-        spendingGood_loginPage.State.sendKeys("Tocantis",Keys.TAB);
+        spendingGood_loginPage.State.clear();
+        spendingGood_loginPage.State.sendKeys(ConfigReader.getProperty("State_Country"));
 
         ReusableMethods.waitFor(7);
 
 
+        spendingGood_loginPage.Billing_Zip_Code.clear();
+        spendingGood_loginPage.Billing_Zip_Code.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
+
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+
+        spendingGood_loginPage.Phone.clear();
+        spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone"));
+        ReusableMethods.waitFor(10);
 
 
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.email);

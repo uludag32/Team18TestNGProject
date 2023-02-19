@@ -39,9 +39,9 @@ public class B_US12OptinalAlan_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
 
-        spendingGood_loginPage.Add.click();
+        //spendingGood_loginPage.Add.click();
 
-//        spendingGood_loginPage.Edit_Your_Billing_Adress.click();
+        spendingGood_loginPage.Edit_Your_Billing_Adress.click();
         ReusableMethods.waitFor(4);
         // ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Edit_Your_Billing_Adress);
 
@@ -62,7 +62,7 @@ public class B_US12OptinalAlan_Test {
 
 
        spendingGood_loginPage.billing_Street_address1.clear();
-        spendingGood_loginPage.billing_Street_address1.sendKeys("Kahta");
+        spendingGood_loginPage.billing_Street_address1.sendKeys(ConfigReader.getProperty("Street_Adresses"));
         ReusableMethods.waitFor(8);
 
         spendingGood_loginPage.Town_City.clear();
@@ -71,7 +71,7 @@ public class B_US12OptinalAlan_Test {
 
          //spendingGood_loginPage.State.click();
         spendingGood_loginPage.State.clear();
-        spendingGood_loginPage.State.sendKeys("Tocantis");
+        spendingGood_loginPage.State.sendKeys(ConfigReader.getProperty("State_Country"));
 
         ReusableMethods.waitFor(5);
 
@@ -90,7 +90,7 @@ public class B_US12OptinalAlan_Test {
         //        spendingGood_loginPage.State.sendKeys("Tocantis");
 //        ReusableMethods.waitFor(5);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.email);
-        spendingGood_loginPage.Save_Address.click();
+        spendingGood_loginPage.Save_Address.submit();
 
         System.out.println(spendingGood_loginPage.error_message.getText());
 
