@@ -37,13 +37,21 @@ public class B_US13Negatif_Test01 {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Addresses.click();
         ReusableMethods.waitFor(8);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Edit_Your_Shipping_Adress.click();
         ReusableMethods.waitFor(15);
+
+
 
         spendingGood_loginPage.Shipping_Firstname1.clear();
         ReusableMethods.waitFor(5);
@@ -60,7 +68,7 @@ public class B_US13Negatif_Test01 {
 //        spendingGood_loginPage.shipping_Country_Region01.submit();
 //        ReusableMethods.waitFor(5);
 
-        actions.sendKeys(Keys.PAGE_UP).build().perform();
+
 
 
         spendingGood_loginPage.shipping_Street_adress_1.clear();
@@ -74,15 +82,18 @@ public class B_US13Negatif_Test01 {
         spendingGood_loginPage.Shipping_State_County.clear();
         ReusableMethods.waitFor(5);
 
+
+
         spendingGood_loginPage.shipping_Zip_Code1.clear();
         ReusableMethods.waitFor(5);
 
 
+
         spendingGood_loginPage.Save_Address.submit();
 
-        spendingGood_loginPage.Scrollbar.click();
-        spendingGood_loginPage.Scrollbar.click();
+        actions.keyDown(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(3);
+
         System.out.println(spendingGood_loginPage.error_message1.getText());
 
 //        Robot robot = new Robot();

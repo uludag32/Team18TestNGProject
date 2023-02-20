@@ -40,10 +40,17 @@ public class D_US12Negatif_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
+  actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Addresses.click();
-        ReusableMethods.waitFor(8);
+        ReusableMethods.waitFor(10);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
+
+
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Edit_Your_Billing_Adress.click();
         ReusableMethods.waitFor(3);
@@ -61,12 +68,15 @@ public class D_US12Negatif_Test {
 //        spendingGood_loginPage.Country_Region1.clear();
 //        ReusableMethods.waitFor(5);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
 
         spendingGood_loginPage.billing_Street_address1.clear();
         ReusableMethods.waitFor(5);
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Town_City.clear();
@@ -82,18 +92,18 @@ public class D_US12Negatif_Test {
         spendingGood_loginPage.Phone.clear();
         ReusableMethods.waitFor(5);
 
-
-
-
         spendingGood_loginPage.Save_Address.submit();
         ReusableMethods.waitFor(3);
-       actions.keyUp(Keys.PAGE_UP);
+
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+
+        ReusableMethods.waitFor(3);
 
     System.out.println(spendingGood_loginPage.error_message.getText());
 
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_END);
-
+        actions.keyDown(Keys.PAGE_DOWN);
         ReusableMethods.getScreenshot("Ekran Görüntüsü");
 
 

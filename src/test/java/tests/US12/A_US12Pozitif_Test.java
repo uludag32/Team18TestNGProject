@@ -37,8 +37,8 @@ public class A_US12Pozitif_Test {
 
         Actions actions=new Actions(Driver.getDriver());
 
-        actions.keyDown(Keys.PAGE_UP).perform();
-        actions.keyDown(Keys.PAGE_UP).perform();
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
 
         spendingGood_loginPage.Addresses.click();
@@ -51,6 +51,8 @@ public class A_US12Pozitif_Test {
         //spendingGood_loginPage.Add.click();
        // ReusableMethods.waitFor(5);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Edit_Your_Billing_Adress.click();
         ReusableMethods.waitFor(4);
@@ -74,6 +76,9 @@ public class A_US12Pozitif_Test {
 
         ReusableMethods.waitFor(5);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Country_Region1.click();
         ReusableMethods.waitFor(8);
         spendingGood_loginPage.Country_Region2.click();
@@ -94,8 +99,11 @@ public class A_US12Pozitif_Test {
 
         actions.keyDown(Keys.PAGE_DOWN).perform();
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+
         spendingGood_loginPage.Town_City.clear();
         spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Town_City"));
+
         ReusableMethods.waitFor(8);
 
         spendingGood_loginPage.State.clear();

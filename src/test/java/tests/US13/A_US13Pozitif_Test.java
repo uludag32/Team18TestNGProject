@@ -37,10 +37,16 @@ public class A_US13Pozitif_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Addresses.click();
         ReusableMethods.waitFor(8);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
+
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Edit_Your_Shipping_Adress.click();
         ReusableMethods.waitFor(15);
@@ -48,6 +54,8 @@ public class A_US13Pozitif_Test {
         spendingGood_loginPage.Shipping_Firstname1.clear();
         spendingGood_loginPage.Shipping_Firstname1.sendKeys((ConfigReader.getProperty("Firstname")));
         ReusableMethods.waitFor(5);
+
+
 
 
         spendingGood_loginPage.Shipping_lastname.clear();
@@ -66,7 +74,7 @@ public class A_US13Pozitif_Test {
 //        ReusableMethods.waitFor(5);
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.shipping_Street_adress_1.clear();
         spendingGood_loginPage.shipping_Street_adress_1.sendKeys(ConfigReader.getProperty("Street_Adresses"));
@@ -87,6 +95,7 @@ public class A_US13Pozitif_Test {
         ReusableMethods.waitFor(5);
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.shipping_Zip_Code1.clear();
         spendingGood_loginPage.shipping_Zip_Code1.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
@@ -96,9 +105,8 @@ public class A_US13Pozitif_Test {
         spendingGood_loginPage.Save_Address.submit();
         System.out.println(spendingGood_loginPage.successfully_message.getText());
 
-        spendingGood_loginPage.Scrollbar.click();
-        spendingGood_loginPage.Scrollbar.click();
-        ReusableMethods.waitFor(3);
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
 
 //        Robot robot = new Robot();
