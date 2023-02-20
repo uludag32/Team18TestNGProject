@@ -76,6 +76,7 @@ public class C_US13Negatif_Test02 {
 
 
 
+
         spendingGood_loginPage.shipping_Street_adress_1.clear();
         spendingGood_loginPage.shipping_Street_adress_1.sendKeys(ConfigReader.getProperty("Street_Adresses"));
         ReusableMethods.waitFor(5);
