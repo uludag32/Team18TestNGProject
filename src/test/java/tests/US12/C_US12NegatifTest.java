@@ -1,5 +1,7 @@
 package tests.US12;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.fatih.SpendingGood_HomePage;
 import pages.fatih.SpendingGood_LoginPage;
@@ -30,15 +32,24 @@ import java.io.IOException;
             ReusableMethods.verifyElementDisplayed(spendingGood_homePage.username);
             ReusableMethods.waitFor(3);
 
+            Actions actions=new Actions(Driver.getDriver());
+
             spendingGood_loginPage.My_Account.click();
             ReusableMethods.waitFor(5);
             ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
             ReusableMethods.waitFor(3);
 
+            actions.keyDown(Keys.PAGE_DOWN).perform();
+            ReusableMethods.waitFor(5);
+
+
             spendingGood_loginPage.Addresses.click();
             ReusableMethods.waitFor(8);
             ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
             ReusableMethods.waitFor(4);
+
+            actions.keyDown(Keys.PAGE_DOWN).perform();
+            ReusableMethods.waitFor(5);
 
             spendingGood_loginPage.Edit_Your_Billing_Adress.click();
             ReusableMethods.waitFor(3);

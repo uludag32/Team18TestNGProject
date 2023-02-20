@@ -37,13 +37,23 @@ public class C_US13Negatif_Test02 {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(3);
+
+
         spendingGood_loginPage.Addresses.click();
         ReusableMethods.waitFor(8);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(3);
+
         spendingGood_loginPage.Edit_Your_Shipping_Adress.click();
         ReusableMethods.waitFor(15);
+
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(3);
 
         spendingGood_loginPage.Shipping_Firstname1.clear();
         spendingGood_loginPage.Shipping_Firstname1.sendKeys((ConfigReader.getProperty("Firstname")));
@@ -64,7 +74,7 @@ public class C_US13Negatif_Test02 {
 //        spendingGood_loginPage.shipping_Country_Region01.submit();
 //        ReusableMethods.waitFor(5);
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
 
 
         spendingGood_loginPage.shipping_Street_adress_1.clear();
@@ -84,7 +94,7 @@ public class C_US13Negatif_Test02 {
         spendingGood_loginPage.Shipping_State_County.sendKeys(ConfigReader.getProperty("State_Country"));
         ReusableMethods.waitFor(5);
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
 
         spendingGood_loginPage.shipping_Zip_Code1.clear();
         spendingGood_loginPage.shipping_Zip_Code1.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));

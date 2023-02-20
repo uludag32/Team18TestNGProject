@@ -1,6 +1,8 @@
 package tests.US12;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.fatih.SpendingGood_HomePage;
 import pages.fatih.SpendingGood_LoginPage;
@@ -23,21 +25,31 @@ public class B_US12OptinalAlan_Test {
         spendingGood_loginPage = new SpendingGood_LoginPage();
         spendingGood_homePage.Sign_In.click();
 
+         Actions actions=new Actions(Driver.getDriver());
+
         spendingGood_homePage.username.sendKeys(ConfigReader.getProperty("vendor_email"));
         spendingGood_homePage.password.sendKeys(ConfigReader.getProperty("vendor_password"));
         spendingGood_homePage.SignIN.click();
         ReusableMethods.verifyElementDisplayed(spendingGood_homePage.username);
         ReusableMethods.waitFor(3);
 
+
+
         spendingGood_loginPage.My_Account.click();
         ReusableMethods.waitFor(10);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Addresses.click();
         ReusableMethods.waitFor(8);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
+
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
         //spendingGood_loginPage.Add.click();
 
@@ -55,6 +67,9 @@ public class B_US12OptinalAlan_Test {
         spendingGood_loginPage.Lastname.sendKeys(ConfigReader.getProperty("Lastname"));
         ReusableMethods.waitFor(5);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Country_Region1.click();
         ReusableMethods.waitFor(3);
         spendingGood_loginPage.Country_Region2.click();
@@ -69,6 +84,9 @@ public class B_US12OptinalAlan_Test {
         spendingGood_loginPage.Town_City.sendKeys("Urfa");
         ReusableMethods.waitFor(8);
 
+        actions.keyDown(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
          //spendingGood_loginPage.State.click();
         spendingGood_loginPage.State.clear();
         spendingGood_loginPage.State.sendKeys(ConfigReader.getProperty("State_Country"));
@@ -78,6 +96,7 @@ public class B_US12OptinalAlan_Test {
         spendingGood_loginPage.Billing_Zip_Code.clear();
         spendingGood_loginPage.Billing_Zip_Code.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
         ReusableMethods.waitFor(5);
+
 
 
                spendingGood_loginPage.Phone.clear();
@@ -92,7 +111,7 @@ public class B_US12OptinalAlan_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.email);
         spendingGood_loginPage.Save_Address.submit();
 
-        System.out.println(spendingGood_loginPage.error_message.getText());
+       // System.out.println(spendingGood_loginPage.error_message.getText());
 
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_END);
