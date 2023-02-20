@@ -85,7 +85,11 @@ public class D_US12Negatif_Test {
         spendingGood_loginPage.State.clear();
         ReusableMethods.waitFor(10);
 
+
+        spendingGood_loginPage.billing_Zip_Code1.clear();
+
         spendingGood_loginPage.Billing_Zip_Code.clear();
+
         ReusableMethods.waitFor(10);
 
 

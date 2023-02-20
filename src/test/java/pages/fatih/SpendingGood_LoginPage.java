@@ -1,10 +1,11 @@
 package pages.fatih;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
 
 public class SpendingGood_LoginPage {
     public SpendingGood_LoginPage() {
@@ -62,7 +63,13 @@ public class SpendingGood_LoginPage {
     public WebElement Town_City;
 
 
+    @FindBy(xpath = "//input[@id='billing_postcode']")
+    public WebElement billing_Zip_Code1;
+
+
+
     @FindBy(xpath = "//input[@id='billing_state']")
+
     public WebElement State;
 
 
