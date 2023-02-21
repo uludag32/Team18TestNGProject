@@ -9,8 +9,5 @@
         <module name="Team18TestNGProject" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Team18TestNGProject" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
