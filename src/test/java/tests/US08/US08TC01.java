@@ -54,8 +54,6 @@ public class US08TC01 {
     }
 
 
-
-
     @Test
     public void us08Test02() {
         SpendingGoodDashboardPage spendingGoodDashboardPage = new SpendingGoodDashboardPage();
@@ -66,22 +64,27 @@ public class US08TC01 {
 
         ReusableMethods.waitFor(5);
        // spendingGoodDashboardPage.dropDownMenuTurkey.sendKeys(ConfigReader.getProperty("country"));
-
+        spendingGoodDashboardPage.streetAddress.clear();
         spendingGoodDashboardPage.streetAddress.sendKeys(ConfigReader.getProperty("Street_Adresses"));
         ReusableMethods.waitFor(5);
+        spendingGoodDashboardPage.postCode.clear();
         spendingGoodDashboardPage.postCode.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
         ReusableMethods.waitFor(5);
+        spendingGoodDashboardPage.billingTownCity.clear();
         spendingGoodDashboardPage.billingTownCity.sendKeys(ConfigReader.getProperty("Town_City"));
         ReusableMethods.waitFor(5);
-     //   ReusableMethods.selectRandomTextFromDropdown(spendingGoodDashboardPage.province.isSelected());
 
 
+        spendingGoodDashboardPage.phone.clear();
         spendingGoodDashboardPage.phone.sendKeys(ConfigReader.getProperty("Phone"));
         ReusableMethods.waitFor(5);
+
         spendingGoodDashboardPage.phone.sendKeys(Keys.TAB,ConfigReader.getProperty("customer_email"));
         spendingGoodDashboardPage.placeOrderButton.submit();
         Assert.assertTrue(spendingGoodDashboardPage.orderCompleteMessage.isDisplayed());
 
 
     }
+
+
 }
