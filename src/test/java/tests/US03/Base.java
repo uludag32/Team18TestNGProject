@@ -2,7 +2,6 @@ package tests.US03;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Test;
 import pages.ilker.SpendingGood_HomePagei;
 import pages.ilker.SpendingGood_MyAccountPage;
 import utilities.ConfigReader;

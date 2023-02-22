@@ -1,8 +1,6 @@
 package tests.US08;
 
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.omer.SpendingGoodDashboardPage;
