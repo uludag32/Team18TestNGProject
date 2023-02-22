@@ -77,7 +77,8 @@ public class US20_SpendinggoodHomePage {
     @FindBy(xpath = "//*[text()='Coupon Successfully Published.']")
     public WebElement couponDisplayed;
 
-
+    @FindBy(xpath = "//*[contains(text(),'Coupon code already exists - customers will use the latest coupon with this code.')]")
+    public WebElement kuponKoduZatenKullanildi;
 
 
 

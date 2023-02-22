@@ -11,6 +11,8 @@ import utilities.ReusableMethods;
 
 import java.io.IOException;
 
+
+
 public class A_US12Pozitif_Test {
     SpendingGood_HomePage spendingGood_homePage;
     SpendingGood_LoginPage spendingGood_loginPage;

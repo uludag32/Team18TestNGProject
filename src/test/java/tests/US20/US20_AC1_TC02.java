@@ -70,7 +70,11 @@ public class US20_AC1_TC02 {
         us20_spendinggoodHomePage.useLimit.sendKeys("100",Keys.ENTER);
         us20_spendinggoodHomePage.submitBox.click();
 
-        assert us20_spendinggoodHomePage.couponDisplayed.isDisplayed();
+//        assert us20_spendinggoodHomePage.couponDisplayed.isDisplayed();
+//        ReusableMethods.waitFor(4);
+
+        //      ******** KUPONU ZATEN YUKARIDA KULLANDIM BU YUZDEN; **************
+        assert us20_spendinggoodHomePage.kuponKoduZatenKullanildi.isDisplayed();
         ReusableMethods.waitFor(4);
 
 

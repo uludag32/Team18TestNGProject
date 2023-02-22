@@ -18,8 +18,8 @@ import java.util.function.Function;
 
 import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
-public class ReusableMethods {
 
+public class ReusableMethods {
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -153,7 +153,6 @@ public class ReusableMethods {
             }
         } else {
             if (element.isSelected()) {
-
                 element.click();
             }
         }
@@ -220,22 +219,5 @@ public class ReusableMethods {
         } catch (NoSuchElementException e) {
             Assert.fail("Element not found: " + element);
         }
-
-
     }
-    public static void selectFromDropdown(WebElement dropdown, String secenek){
-//        selectFromDropdown(driver.findElement(By.xpath("//select[@id='year']")), "2005"); -> year dan 2005
-//        selectFromDropdown(driver.findElement(By.xpath("//select[@id='month']")), "January"); -> month January
-//        selectFromDropdown(driver.findElement(By.id("day")), "12"); -> Day 12
-//        Gonderilen dropdown elemention tum optionslari alinir
-        List<WebElement> options = dropdown.findElements(By.tagName("option"));//Tum option tagli elementleri aliyorum
-        for (WebElement eachOption : options){
-            if (eachOption.getText().equals(secenek)){
-                eachOption.click();
-                break;
-            }
-        }
-
-    }
-
 }
