@@ -3,6 +3,9 @@ package tests.US09;
 import org.apache.commons.compress.harmony.unpack200.IMatcher;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WindowType;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -23,6 +26,7 @@ public class US09TC01 {
     VendorRegistrationPage vendorRegistrationPage = new VendorRegistrationPage();
     MailPage mailPage = new MailPage();
     Actions actions = new Actions(Driver.getDriver());
+    String firstPage= Driver.getDriver().getWindowHandle();
 
 
     @Test
@@ -38,7 +42,14 @@ public class US09TC01 {
     @Test
     public void us09Test02() throws IOException {
 
+
+
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
+        vendorRegistrationPage.vendorEmail.click();
+
+
+        vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
+
 
         vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
@@ -47,7 +58,9 @@ public class US09TC01 {
     }
 
     @Test
-    public void us09Test03() {
+    public void us09Test03() throws IOException {
+        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
+
         Driver.getDriver().get(ConfigReader.getProperty("vendorMailUrl"));
         ReusableMethods.waitFor(2);
 
@@ -55,7 +68,18 @@ public class US09TC01 {
         mailPage.mailUsername.sendKeys(Keys.TAB, Keys.ENTER);
         // mailPage.loginButton.click();
         mailPage.mailPassWord.sendKeys(ConfigReader.getProperty("vendorPassword"));
+        ReusableMethods.waitFor(7);
         mailPage.mailPassWord.sendKeys(Keys.TAB, Keys.ENTER);
+
+        ReusableMethods.waitFor(8);
+        ReusableMethods.hover(mailPage.mailLink);
+
+        mailPage.mailLink.click();
+        ReusableMethods.waitFor(5);
+
+        ReusableMethods.hover(mailPage.firstMailSubject);
+        ReusableMethods.doubleClick(mailPage.firstMailSubject);
+
         ReusableMethods.waitFor(10);
 
         mailPage.mailLink.sendKeys(Keys.ENTER);
@@ -71,6 +95,7 @@ public class US09TC01 {
         // actions.moveToElement(mailPage.firstMailSubject).click();
 
 
+
         Pattern pattern = Pattern.compile("\\d{6}"); // 6 haneli sayıları arama
         Matcher matcher = pattern.matcher(mailPage.verificationMessage.getText());
         String code = null;
@@ -83,26 +108,64 @@ public class US09TC01 {
 
 
 
+        Driver.getDriver().switchTo().window(firstPage);
+
+        vendorRegistrationPage.verificationCodeBox.sendKeys(code);
+
+        ReusableMethods.waitFor(3);
+
+
         // yeni sayfa
 
             vendorRegistrationPage.verificationCodeBox.sendKeys(code);
 
             ReusableMethods.waitFor(3);
 
+
             vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
             ReusableMethods.waitFor(3);
             vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
 
+
+        vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
+        ReusableMethods.waitFor(3);
+        vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
+
             vendorRegistrationPage.registerButton.click();
 
+
+        vendorRegistrationPage.registerButton.submit();
+        ReusableMethods.waitFor(5);
 
             Driver.closeDriver();
 
 
+
+        //vendorRegistrationPage.setUpCancelButton.click();
+        ReusableMethods.getScreenshot("Vcode");
+
         }
 
+
+    }
+    @Test
+    public void us09Test04() {
+        Driver.getDriver().switchTo().window(firstPage);
+        vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
+        //vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
+        //vendorRegistrationPage.verificationCodeBox.sendKeys(code);
+        vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
+        ReusableMethods.waitFor(3);
+        vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
+        vendorRegistrationPage.registerButton.submit();
+
+      // Assert.assertTrue(vendorRegistrationPage.errorMessage.isDisplayed());
+
+         Driver.closeDriver();
     }
 
+
+}
 
 
 
