@@ -8,7 +8,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
+
 public class Driver {
+
     //    Driver.getDriver(); -> driver
     private static WebDriver driver;
     //    getDriver() is used to instantiate the driver object
@@ -49,4 +51,5 @@ public class Driver {
             driver=null;
         }
     }
+
 }
