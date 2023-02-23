@@ -16,7 +16,7 @@ public class US21_AC2_TC01 {
     US20_SpendinggoodHomePage us20_spendinggoodHomePage;
     US21_SpendinggoodHomePage us21_spendinggoodHomePage;
     @Test
-    public void testName() throws IOException {
+    public void AC2_TC01() throws IOException {
         us20_spendinggoodHomePage = new US20_SpendinggoodHomePage();
         us21_spendinggoodHomePage = new US21_SpendinggoodHomePage();
 
@@ -119,6 +119,7 @@ public class US21_AC2_TC01 {
         assert  us21_spendinggoodHomePage.finishShoppingText.getText().contains(finishText);
         ReusableMethods.waitFor(3);
 
+        Driver.closeDriver();
     }
 }
 
