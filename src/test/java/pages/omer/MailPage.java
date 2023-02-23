@@ -20,8 +20,6 @@ public class MailPage {
     @FindBy(xpath = "//input[@id='login-passwd']")
     public WebElement mailPassWord;
 
-    @FindBy(xpath = "//*[@id=\"yiv2037993721body_content_inner\"]/p[2]/b")
-    public WebElement firstMail;
 
     @FindBy(xpath = "//a[@id='ybarMailLink']")
     public WebElement mailLink;
@@ -32,8 +30,11 @@ public class MailPage {
 
 
 
-    @FindBy(xpath = "//input[@placeholder='Verification Code']")
-    public WebElement verificationCode;
+
+
+    @FindBy(xpath = "//span[@data-test-id='message-group-subject-text']")
+    public WebElement verificationMessage;
+
 
 
 
