@@ -1,6 +1,9 @@
 package tests.US09;
 
+import org.apache.commons.compress.harmony.unpack200.IMatcher;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,6 +14,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.io.IOException;
 import java.security.Key;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,13 +36,14 @@ public class US09TC01 {
     }
 
     @Test
-    public void us09Test02() {
+    public void us09Test02() throws IOException {
 
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
-        ReusableMethods.waitFor(5);
+
         vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
         Assert.assertTrue(vendorRegistrationPage.verificationMessage.isDisplayed());
+        ReusableMethods.getScreenshot("sc");
     }
 
     @Test
@@ -51,43 +56,53 @@ public class US09TC01 {
         // mailPage.loginButton.click();
         mailPage.mailPassWord.sendKeys(ConfigReader.getProperty("vendorPassword"));
         mailPage.mailPassWord.sendKeys(Keys.TAB, Keys.ENTER);
-        ReusableMethods.waitFor(8);
+        ReusableMethods.waitFor(10);
+
         mailPage.mailLink.sendKeys(Keys.ENTER);
-        ReusableMethods.waitFor(8);
-        //mailPage.firstMailSubject.sendKeys(Keys.ENTER);
+        ReusableMethods.waitFor(5);
+
+
+        ReusableMethods.hover(mailPage.firstMailSubject);
+        ReusableMethods.doubleClick(mailPage.firstMailSubject);
+        // mailPage.firstMailSubject.sendKeys(Keys.ENTER);
 
         ReusableMethods.waitFor(8);
 
-       actions.moveToElement(mailPage.firstMailSubject).click();
-
+        // actions.moveToElement(mailPage.firstMailSubject).click();
 
 
         Pattern pattern = Pattern.compile("\\d{6}"); // 6 haneli sayıları arama
-        Matcher matcher = pattern.matcher(mailPage.firstMail.getText());
+        Matcher matcher = pattern.matcher(mailPage.verificationMessage.getText());
         String code = null;
+
         if (matcher.find()) {
             code = matcher.group(0);
             System.out.println("E-posta içeriğindeki kod: " + code);
+
         }
-        System.out.println(code.toString());
-        ReusableMethods.waitFor(5);
-        mailPage.verificationCode.sendKeys(Keys.valueOf(code));
 
 
 
-        Driver.closeDriver();
+        // yeni sayfa
 
+            vendorRegistrationPage.verificationCodeBox.sendKeys(code);
+
+            ReusableMethods.waitFor(3);
+
+            vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
+            ReusableMethods.waitFor(3);
+            vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
+
+            vendorRegistrationPage.registerButton.click();
+
+
+            Driver.closeDriver();
+
+
+        }
 
     }
 
-
-
-
-
-
-
-
-    }
 
 
 
