@@ -77,6 +77,8 @@ public class US20_AC1_TC02 {
         assert us20_spendinggoodHomePage.kuponKoduZatenKullanildi.isDisplayed();
         ReusableMethods.waitFor(4);
 
+        Driver.closeDriver();
+
 
     }
 }

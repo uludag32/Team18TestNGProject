@@ -15,7 +15,7 @@ public class US20_AC1_TC01 {
 
     US20_SpendinggoodHomePage us20_spendinggoodHomePage;
     @Test
-    public void spending() {
+    public void AC1_TC01() {
         us20_spendinggoodHomePage = new US20_SpendinggoodHomePage();
 
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -77,6 +77,7 @@ public class US20_AC1_TC01 {
         assert us20_spendinggoodHomePage.kuponKoduZatenKullanildi.isDisplayed();
         ReusableMethods.waitFor(4);
 
+        Driver.closeDriver();
 
     }
 }

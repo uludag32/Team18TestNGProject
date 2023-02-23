@@ -28,7 +28,7 @@ public WebElement username;
     public WebElement SignIN;
 
 
-@FindBy(linkText = "//a[text()='Log out']\n")
+@FindBy(linkText = "//a[text()='Log out']")
     public WebElement logoutLink;
 
 

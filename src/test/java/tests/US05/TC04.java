@@ -1,6 +1,10 @@
 package tests.US05;
 
+
+import com.github.javafaker.Faker;
+
 import org.apache.poi.ss.formula.functions.Count;
+
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import utilities.ConfigReader;

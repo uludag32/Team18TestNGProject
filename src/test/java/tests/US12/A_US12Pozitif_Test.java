@@ -11,6 +11,8 @@ import utilities.ReusableMethods;
 
 import java.io.IOException;
 
+
+
 public class A_US12Pozitif_Test {
     SpendingGood_HomePage spendingGood_homePage;
     SpendingGood_LoginPage spendingGood_loginPage;
@@ -37,8 +39,7 @@ public class A_US12Pozitif_Test {
 
         Actions actions=new Actions(Driver.getDriver());
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(5);
+
 
 
         spendingGood_loginPage.Addresses.click();
@@ -63,7 +64,7 @@ public class A_US12Pozitif_Test {
         spendingGood_loginPage.Firstname.sendKeys(ConfigReader.getProperty("Firstname"));
         ReusableMethods.waitFor(5);
 
-   ;
+
 
 
         spendingGood_loginPage.Lastname.clear();
@@ -81,7 +82,8 @@ public class A_US12Pozitif_Test {
 
         spendingGood_loginPage.Country_Region1.click();
         ReusableMethods.waitFor(8);
-        spendingGood_loginPage.Country_Region2.click();
+
+        spendingGood_loginPage.Country_Region2.sendKeys("Turkmenistan",Keys.ENTER);
         ReusableMethods.waitFor(8);
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();

@@ -3,7 +3,9 @@ package tests.US09;
 import org.apache.commons.compress.harmony.unpack200.IMatcher;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WindowType;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -41,8 +43,13 @@ public class US09TC01 {
     public void us09Test02() throws IOException {
 
 
+
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
         vendorRegistrationPage.vendorEmail.click();
+
+
+        vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
+
 
         vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
@@ -63,6 +70,7 @@ public class US09TC01 {
         mailPage.mailPassWord.sendKeys(ConfigReader.getProperty("vendorPassword"));
         ReusableMethods.waitFor(7);
         mailPage.mailPassWord.sendKeys(Keys.TAB, Keys.ENTER);
+
         ReusableMethods.waitFor(8);
         ReusableMethods.hover(mailPage.mailLink);
 
@@ -71,6 +79,21 @@ public class US09TC01 {
 
         ReusableMethods.hover(mailPage.firstMailSubject);
         ReusableMethods.doubleClick(mailPage.firstMailSubject);
+
+        ReusableMethods.waitFor(10);
+
+        mailPage.mailLink.sendKeys(Keys.ENTER);
+        ReusableMethods.waitFor(5);
+
+
+        ReusableMethods.hover(mailPage.firstMailSubject);
+        ReusableMethods.doubleClick(mailPage.firstMailSubject);
+        // mailPage.firstMailSubject.sendKeys(Keys.ENTER);
+
+        ReusableMethods.waitFor(8);
+
+        // actions.moveToElement(mailPage.firstMailSubject).click();
+
 
 
         Pattern pattern = Pattern.compile("\\d{6}"); // 6 haneli sayıları arama
@@ -84,6 +107,7 @@ public class US09TC01 {
         }
 
 
+
         Driver.getDriver().switchTo().window(firstPage);
 
         vendorRegistrationPage.verificationCodeBox.sendKeys(code);
@@ -91,17 +115,37 @@ public class US09TC01 {
         ReusableMethods.waitFor(3);
 
 
+        // yeni sayfa
+
+            vendorRegistrationPage.verificationCodeBox.sendKeys(code);
+
+            ReusableMethods.waitFor(3);
+
+
+            vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
+            ReusableMethods.waitFor(3);
+            vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
+
+
         vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
         ReusableMethods.waitFor(3);
         vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
 
+            vendorRegistrationPage.registerButton.click();
+
+
         vendorRegistrationPage.registerButton.submit();
         ReusableMethods.waitFor(5);
+
+            Driver.closeDriver();
 
 
 
         //vendorRegistrationPage.setUpCancelButton.click();
         ReusableMethods.getScreenshot("Vcode");
+
+        }
+
 
     }
     @Test
@@ -120,4 +164,10 @@ public class US09TC01 {
          Driver.closeDriver();
     }
 
+
 }
+
+
+
+
+
