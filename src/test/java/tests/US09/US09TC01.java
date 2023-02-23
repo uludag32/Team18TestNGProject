@@ -3,9 +3,7 @@ package tests.US09;
 import org.apache.commons.compress.harmony.unpack200.IMatcher;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WindowType;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -28,7 +26,6 @@ public class US09TC01 {
     Actions actions = new Actions(Driver.getDriver());
     String firstPage= Driver.getDriver().getWindowHandle();
 
-
     @Test
     public void us09Test01() {
         Driver.getDriver().get(ConfigReader.getProperty("spending_Good_Url"));
@@ -38,18 +35,10 @@ public class US09TC01 {
         spendingGoodHomePage.registerButton.click();
         spendingGoodHomePage.becomeVendor.click();
     }
-
     @Test
     public void us09Test02() throws IOException {
 
-
-
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
-        vendorRegistrationPage.vendorEmail.click();
-
-
-        vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
-
 
         vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
@@ -70,30 +59,16 @@ public class US09TC01 {
         mailPage.mailPassWord.sendKeys(ConfigReader.getProperty("vendorPassword"));
         ReusableMethods.waitFor(7);
         mailPage.mailPassWord.sendKeys(Keys.TAB, Keys.ENTER);
-
-        ReusableMethods.waitFor(8);
+        ReusableMethods.waitFor(5);
         ReusableMethods.hover(mailPage.mailLink);
 
         mailPage.mailLink.click();
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(9);
 
         ReusableMethods.hover(mailPage.firstMailSubject);
         ReusableMethods.doubleClick(mailPage.firstMailSubject);
-
-        ReusableMethods.waitFor(10);
-
-        mailPage.mailLink.sendKeys(Keys.ENTER);
-        ReusableMethods.waitFor(5);
-
-
-        ReusableMethods.hover(mailPage.firstMailSubject);
-        ReusableMethods.doubleClick(mailPage.firstMailSubject);
-        // mailPage.firstMailSubject.sendKeys(Keys.ENTER);
 
         ReusableMethods.waitFor(8);
-
-        // actions.moveToElement(mailPage.firstMailSubject).click();
-
 
 
         Pattern pattern = Pattern.compile("\\d{6}"); // 6 haneli sayıları arama
@@ -103,10 +78,7 @@ public class US09TC01 {
         if (matcher.find()) {
             code = matcher.group(0);
             System.out.println("E-posta içeriğindeki kod: " + code);
-
         }
-
-
 
         Driver.getDriver().switchTo().window(firstPage);
 
@@ -114,42 +86,20 @@ public class US09TC01 {
 
         ReusableMethods.waitFor(3);
 
-
-        // yeni sayfa
-
-            vendorRegistrationPage.verificationCodeBox.sendKeys(code);
-
-            ReusableMethods.waitFor(3);
-
-
-            vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
-            ReusableMethods.waitFor(3);
-            vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
-
-
         vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
         ReusableMethods.waitFor(3);
         vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
 
-            vendorRegistrationPage.registerButton.click();
-
-
-        vendorRegistrationPage.registerButton.submit();
+        vendorRegistrationPage.registerButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
 
-            Driver.closeDriver();
-
-
-
-        //vendorRegistrationPage.setUpCancelButton.click();
+        vendorRegistrationPage.setUpCancelButton.click();
         ReusableMethods.getScreenshot("Vcode");
-
-        }
-
 
     }
     @Test
     public void us09Test04() {
+
         Driver.getDriver().switchTo().window(firstPage);
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
         //vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
@@ -159,15 +109,9 @@ public class US09TC01 {
         vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
         vendorRegistrationPage.registerButton.submit();
 
-      // Assert.assertTrue(vendorRegistrationPage.errorMessage.isDisplayed());
+        // Assert.assertTrue(vendorRegistrationPage.errorMessage.isDisplayed());
 
-         Driver.closeDriver();
+       // Driver.closeDriver();
     }
 
-
 }
-
-
-
-
-
