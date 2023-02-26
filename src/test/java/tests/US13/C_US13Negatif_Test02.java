@@ -37,9 +37,6 @@ public class C_US13Negatif_Test02 {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(3);
-
 
         spendingGood_loginPage.Addresses.click();
         ReusableMethods.waitFor(8);
@@ -65,15 +62,6 @@ public class C_US13Negatif_Test02 {
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.shipping_Company_name.clear();
-
-//        spendingGood_loginPage.shipping_Country_Region.clear();
-//        ReusableMethods.waitFor(5);
-
-//        spendingGood_loginPage.shipping_Country_Region0.click();
-//        ReusableMethods.waitFor(5);
-//        spendingGood_loginPage.shipping_Country_Region01.submit();
-//        ReusableMethods.waitFor(5);
-
 
 
 

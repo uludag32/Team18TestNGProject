@@ -39,7 +39,7 @@ import java.io.IOException;
             ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
             ReusableMethods.waitFor(3);
 
-            actions.keyDown(Keys.PAGE_DOWN).perform();
+            actions.keyDown(Keys.ARROW_DOWN).perform();
             ReusableMethods.waitFor(5);
 
 

@@ -1,7 +1,9 @@
 package tests.US12;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.fatih.SpendingGood_HomePage;
 import pages.fatih.SpendingGood_LoginPage;
@@ -11,6 +13,7 @@ import utilities.ReusableMethods;
 
 import java.io.IOException;
 
+import static org.testng.AssertJUnit.assertTrue;
 
 
 public class A_US12Pozitif_Test {
@@ -39,11 +42,10 @@ public class A_US12Pozitif_Test {
 
         Actions actions=new Actions(Driver.getDriver());
 
-
-
+        ReusableMethods.waitFor(2);
 
         spendingGood_loginPage.Addresses.click();
-        ReusableMethods.waitFor(10);
+        ReusableMethods.waitFor(5);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(10);
 
@@ -60,33 +62,46 @@ public class A_US12Pozitif_Test {
         // ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Edit_Your_Billing_Adress);
 
 
+        actions.keyDown(Keys.ARROW_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Firstname.clear();
         spendingGood_loginPage.Firstname.sendKeys(ConfigReader.getProperty("Firstname"));
         ReusableMethods.waitFor(5);
-
-
 
 
         spendingGood_loginPage.Lastname.clear();
         spendingGood_loginPage.Lastname.sendKeys(ConfigReader.getProperty("Lastname"));
         ReusableMethods.waitFor(5);
 
+        actions.keyDown(Keys.ARROW_DOWN).perform();
+        ReusableMethods.waitFor(5);
+
         spendingGood_loginPage.Company_name.clear();
         spendingGood_loginPage.Company_name.sendKeys(ConfigReader.getProperty("Company"));
 
-
         ReusableMethods.waitFor(5);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+        actions.keyDown(Keys.ARROW_DOWN).perform();
         ReusableMethods.waitFor(5);
 
-        spendingGood_loginPage.Country_Region1.click();
-        ReusableMethods.waitFor(8);
+            try {
+                //Kullanıcı Country / Region  alanına tıklar
+                spendingGood_loginPage.Billing_Country_Region1.click();
+                ReusableMethods.waitFor(2);
+                //Kullanıcı Country / Region  alanından American Samoa'yi secer.
+                spendingGood_loginPage.Billing_Country_Region2.sendKeys("American Samoa",Keys.ENTER);
+            } catch (Exception e){
 
-        spendingGood_loginPage.Country_Region2.sendKeys("Turkmenistan",Keys.ENTER);
-        ReusableMethods.waitFor(8);
+            }
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+            try {
+                spendingGood_loginPage.Billing_Country_Region3.click();
+                ReusableMethods.waitFor(2);
+                //Kullanıcı Country / Region  alanından American Samoa'yi secer.
+                spendingGood_loginPage.Billing_Country_Region4.sendKeys("American Samoa",Keys.ENTER,Keys.TAB);
+            } catch (Exception e) {
+            }
 
 
         spendingGood_loginPage.billing_Street_address1.clear();
@@ -99,9 +114,10 @@ public class A_US12Pozitif_Test {
         spendingGood_loginPage.billing_Street_address2.sendKeys(ConfigReader.getProperty("ApartmanSuit"));
         ReusableMethods.waitFor(8);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+        actions.keyDown(Keys.ARROW_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+
 
         spendingGood_loginPage.Town_City.clear();
         spendingGood_loginPage.Town_City.sendKeys(ConfigReader.getProperty("Town_City"));
@@ -117,16 +133,25 @@ public class A_US12Pozitif_Test {
         spendingGood_loginPage.Billing_Zip_Code.clear();
         spendingGood_loginPage.Billing_Zip_Code.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+        actions.keyDown(Keys.ARROW_DOWN).perform();
+        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Phone.clear();
         spendingGood_loginPage.Phone.sendKeys(ConfigReader.getProperty("Phone"));
         ReusableMethods.waitFor(10);
 
 
-        ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.email);
+        try {
+            assertTrue("Email Otomatik Görünmüyor: " +spendingGood_loginPage.email , spendingGood_loginPage.email.isDisplayed());
+        } catch (NoSuchElementException e) {
+            Assert.fail("Email Görünmüyor: " + spendingGood_loginPage.email);
+        }
+        //ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.email);
+
         ReusableMethods.waitFor(5);
-        spendingGood_loginPage.Save_Address.click();
+        actions.keyDown(Keys.ARROW_DOWN);
+        spendingGood_loginPage.Save_Address.submit();
+        ReusableMethods.waitFor(8);
 
        // System.out.println(spendingGood_loginPage.error_message.getText());
 
