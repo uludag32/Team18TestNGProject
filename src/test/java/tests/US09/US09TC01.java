@@ -40,7 +40,12 @@ public class US09TC01 {
 
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
 
+        vendorRegistrationPage.vendorEmail.sendKeys(Keys.TAB);
+      //  vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
+
+
         vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
+
         ReusableMethods.waitFor(5);
         Assert.assertTrue(vendorRegistrationPage.verificationMessage.isDisplayed());
         ReusableMethods.getScreenshot("sc");
@@ -93,25 +98,39 @@ public class US09TC01 {
         vendorRegistrationPage.registerButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
 
+        Assert.assertTrue(vendorRegistrationPage.errorMessage.isDisplayed());
+
+
         vendorRegistrationPage.setUpCancelButton.click();
         ReusableMethods.getScreenshot("Vcode");
+
 
     }
     @Test
     public void us09Test04() {
 
         Driver.getDriver().switchTo().window(firstPage);
+
+        vendorRegistrationPage.vendorEmail.clear();
+        vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
+
+
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
         //vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
         //vendorRegistrationPage.verificationCodeBox.sendKeys(code);
+
         vendorRegistrationPage.vendorPassword1.sendKeys(ConfigReader.getProperty("vendorPassword"));
         ReusableMethods.waitFor(3);
         vendorRegistrationPage.vendorPassword1.sendKeys(Keys.TAB, ConfigReader.getProperty("vendorPassword"));
         vendorRegistrationPage.registerButton.submit();
 
+
+         Driver.closeDriver();
+
         // Assert.assertTrue(vendorRegistrationPage.errorMessage.isDisplayed());
 
         // Driver.closeDriver();
+
     }
 
 }
