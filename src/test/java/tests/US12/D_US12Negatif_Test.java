@@ -40,7 +40,7 @@ public class D_US12Negatif_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
-  actions.keyDown(Keys.PAGE_DOWN).perform();
+  actions.keyDown(Keys.ARROW_DOWN).perform();
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Addresses.click();
@@ -65,10 +65,8 @@ public class D_US12Negatif_Test {
         spendingGood_loginPage.Lastname.clear();
         ReusableMethods.waitFor(5);
 
-//        spendingGood_loginPage.Country_Region1.clear();
-//        ReusableMethods.waitFor(5);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+//        actions.keyDown(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(5);
 
 
@@ -99,15 +97,15 @@ public class D_US12Negatif_Test {
         spendingGood_loginPage.Save_Address.submit();
         ReusableMethods.waitFor(3);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
-
-        ReusableMethods.waitFor(3);
 
     System.out.println(spendingGood_loginPage.error_message.getText());
 
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_END);
-        actions.keyDown(Keys.PAGE_DOWN);
+        actions.keyDown(Keys.ARROW_DOWN).perform();
+        actions.keyDown(Keys.ARROW_DOWN).perform();
+
+        ReusableMethods.waitFor(3);
         ReusableMethods.getScreenshot("Ekran Görüntüsü");
 
 

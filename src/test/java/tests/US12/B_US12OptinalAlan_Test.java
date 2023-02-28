@@ -39,7 +39,7 @@ public class B_US12OptinalAlan_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+        actions.keyDown(Keys.ARROW_DOWN).perform();
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Addresses.click();
@@ -66,18 +66,38 @@ public class B_US12OptinalAlan_Test {
         spendingGood_loginPage.Lastname.sendKeys(ConfigReader.getProperty("Lastname"));
         ReusableMethods.waitFor(5);
 
+        spendingGood_loginPage.Company_name.clear();
+
+        ReusableMethods.waitFor(3);
+
         actions.keyDown(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(5);
 
-        spendingGood_loginPage.Country_Region1.click();
-        ReusableMethods.waitFor(3);
-        spendingGood_loginPage.Country_Region2.click();
-        ReusableMethods.waitFor(3);
+        try {
+            //Kullanıcı Country / Region  alanına tıklar
+            spendingGood_loginPage.Billing_Country_Region1.click();
+            ReusableMethods.waitFor(2);
+            //Kullanıcı Country / Region  alanından American Samoa'yi secer.
+            spendingGood_loginPage.Billing_Country_Region2.sendKeys("American Samoa",Keys.ENTER);
+        } catch (Exception e){
+
+        }
+
+        try {
+            spendingGood_loginPage.Billing_Country_Region3.click();
+            ReusableMethods.waitFor(2);
+            //Kullanıcı Country / Region  alanından American Samoa'yi secer.
+            spendingGood_loginPage.Billing_Country_Region4.sendKeys("American Samoa",Keys.ENTER,Keys.TAB);
+        } catch (Exception e) {
+        }
 
 
        spendingGood_loginPage.billing_Street_address1.clear();
         spendingGood_loginPage.billing_Street_address1.sendKeys(ConfigReader.getProperty("Street_Adresses"));
         ReusableMethods.waitFor(8);
+
+
+        spendingGood_loginPage.billing_Street_address2.clear();
 
         spendingGood_loginPage.Town_City.clear();
         spendingGood_loginPage.Town_City.sendKeys("Urfa");
