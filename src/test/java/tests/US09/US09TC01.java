@@ -40,7 +40,7 @@ public class US09TC01 {
 
         vendorRegistrationPage.vendorEmail.sendKeys(ConfigReader.getProperty("becomeVendorMail"));
         vendorRegistrationPage.vendorEmail.sendKeys(Keys.TAB);
-      //  vendorRegistrationPage.verificationButton.sendKeys(Keys.ENTER);
+
         ReusableMethods.waitFor(5);
         Assert.assertTrue(vendorRegistrationPage.verificationMessage.isDisplayed());
         ReusableMethods.getScreenshot("sc");
