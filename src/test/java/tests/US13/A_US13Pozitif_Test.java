@@ -37,11 +37,11 @@ public class A_US13Pozitif_Test {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(5);
+//        actions.keyDown(Keys.PAGE_DOWN).perform();
+//        ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Addresses.click();
-        ReusableMethods.waitFor(8);
+        ReusableMethods.waitFor(5);
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.Addresses);
         ReusableMethods.waitFor(4);
 
@@ -56,8 +56,6 @@ public class A_US13Pozitif_Test {
         ReusableMethods.waitFor(5);
 
 
-
-
         spendingGood_loginPage.Shipping_lastname.clear();
         spendingGood_loginPage.Shipping_lastname.sendKeys(ConfigReader.getProperty("Lastname"));
         ReusableMethods.waitFor(5);
@@ -65,13 +63,23 @@ public class A_US13Pozitif_Test {
         spendingGood_loginPage.shipping_Company_name.clear();
         spendingGood_loginPage.shipping_Company_name.sendKeys("Tosyali");
 
-//        spendingGood_loginPage.shipping_Country_Region.clear();
-//        ReusableMethods.waitFor(5);
+        try {
+            //Kullanıcı Country / Region  alanına tıklar
+            spendingGood_loginPage.shipping_Country_Region1.click();
+            ReusableMethods.waitFor(2);
+            //Kullanıcı Country / Region  alanından American Samoa'yi secer.
+            spendingGood_loginPage.shipping_Country_Region2.sendKeys("American Samoa",Keys.ENTER);
+        } catch (Exception e){
 
-//        spendingGood_loginPage.shipping_Country_Region0.click();
-//        ReusableMethods.waitFor(5);
-//        spendingGood_loginPage.shipping_Country_Region01.submit();
-//        ReusableMethods.waitFor(5);
+        }
+
+        try {
+            spendingGood_loginPage.shipping_Country_Region3.click();
+            ReusableMethods.waitFor(2);
+            //Kullanıcı Country / Region  alanından American Samoa'yi secer.
+            spendingGood_loginPage.shipping_Country_Region4.sendKeys("American Samoa",Keys.ENTER,Keys.TAB);
+        } catch (Exception e) {
+        }
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(5);
@@ -103,10 +111,12 @@ public class A_US13Pozitif_Test {
 
 
         spendingGood_loginPage.Save_Address.submit();
+
+        ReusableMethods.waitFor(5);
+
         System.out.println(spendingGood_loginPage.successfully_message.getText());
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(5);
+
 
 
 //        Robot robot = new Robot();

@@ -45,11 +45,17 @@ public class SpendingGood_LoginPage {
     public WebElement Company_name;
 
 
-    @FindBy(xpath = "(//span[@role='presentation'])[1]")
-    public WebElement Country_Region1;
+    @FindBy(xpath = "//span[@id='select2-billing_country-container']")
+    public WebElement Billing_Country_Region1;
 
-    @FindBy(xpath ="//li[.='Bhutan']")
-    public WebElement Country_Region2;
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement Billing_Country_Region2;
+
+    @FindBy(xpath = "//span[@id='select2-billing_country-container']")
+    public WebElement Billing_Country_Region3;
+
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement Billing_Country_Region4;
 
 
 
@@ -125,11 +131,17 @@ public class SpendingGood_LoginPage {
     @FindBy(xpath = "//input[@id='shipping_company']")
     public WebElement shipping_Company_name;
 
-    @FindBy(xpath = "//span[@class='select2-selection__arrow']")
-    public WebElement shipping_Country_Region0;
+    @FindBy(xpath = "//span[@id='select2-shipping_country-container']")
+    public WebElement shipping_Country_Region1;
 
-    @FindBy(xpath = "//li[@id='select2-shipping_country-result-t2rv-AS']")
-    public WebElement shipping_Country_Region01;
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement shipping_Country_Region2;
+
+    @FindBy(xpath = "//span[@id='select2-shipping_country-container']")
+    public WebElement shipping_Country_Region3;
+
+    @FindBy(xpath = "//input[@class='select2-search__field']")
+    public WebElement shipping_Country_Region4;
 
     @FindBy(xpath = "//input[@id='shipping_address_1']")
     public WebElement shipping_Street_adress_1;

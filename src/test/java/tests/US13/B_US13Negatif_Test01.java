@@ -37,7 +37,7 @@ public class B_US13Negatif_Test01 {
         ReusableMethods.verifyElementDisplayed(spendingGood_loginPage.My_Account);
         ReusableMethods.waitFor(3);
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
+        actions.keyDown(Keys.ARROW_DOWN).perform();
         ReusableMethods.waitFor(5);
 
         spendingGood_loginPage.Addresses.click();
@@ -91,8 +91,7 @@ public class B_US13Negatif_Test01 {
 
         spendingGood_loginPage.Save_Address.submit();
 
-        actions.keyDown(Keys.PAGE_DOWN).perform();
-        ReusableMethods.waitFor(3);
+       actions.keyDown(Keys.ARROW_DOWN).perform();
 
         System.out.println(spendingGood_loginPage.error_message1.getText());
 
