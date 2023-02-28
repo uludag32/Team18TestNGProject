@@ -59,8 +59,8 @@ public class US08TC01 {
 
         ReusableMethods.waitFor(5);
 
-       spendingGoodDashboardPage.selectionArrow1.click();
-       spendingGoodDashboardPage.dropDownMenuTurkey.sendKeys("Turkey",Keys.TAB);
+        spendingGoodDashboardPage.selectionArrow1.click();
+        spendingGoodDashboardPage.dropDownMenuTurkey.sendKeys("Turkey",Keys.TAB);
 
         ReusableMethods.waitFor(5);
         spendingGoodDashboardPage.streetAddress1.clear();
@@ -74,7 +74,7 @@ public class US08TC01 {
         ReusableMethods.waitFor(7);
 
 
-       ReusableMethods.selectFromDropdown(spendingGoodDashboardPage.province, "Ankara");
+        ReusableMethods.selectFromDropdown(spendingGoodDashboardPage.province, "Ankara");
 //        spendingGoodDashboardPage.selectionArrow2.click();
 //       spendingGoodDashboardPage.province.sendKeys("Ankara",Keys.TAB);
 
