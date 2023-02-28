@@ -9,8 +9,9 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class US08TC01 {
+import java.io.IOException;
 
+public class US08TC01 {
 
     @Test
     public void us08Test01() {
@@ -32,25 +33,20 @@ public class US08TC01 {
         spendingGoodDashboardPage.searchButton.submit();
         ReusableMethods.waitFor(5);
         spendingGoodDashboardPage.firstProduct.click();
-        ReusableMethods.waitFor(5);
-
-
-
+        ReusableMethods.waitFor(7);
         spendingGoodDashboardPage.wishlistButton.sendKeys(Keys.ENTER);
+        ReusableMethods.waitFor(5);
         spendingGoodDashboardPage.hearthButton.click();
         ReusableMethods.waitFor(7);
         spendingGoodDashboardPage.wishListPageTitle.isDisplayed();
         spendingGoodDashboardPage.quickViewButton.sendKeys(Keys.ENTER);
         ReusableMethods.waitFor(5);
         spendingGoodDashboardPage.addToChartButton.click();
-        ReusableMethods.waitFor(1);
 
         spendingGoodDashboardPage.closeButton.click();
         spendingGoodDashboardPage.viewChartButton.click();
         spendingGoodDashboardPage.checkOutButton.click();
-
     }
-
 
     @Test
     public void us08Test02() {
@@ -58,20 +54,29 @@ public class US08TC01 {
         spendingGoodDashboardPage.firstName.clear();
         spendingGoodDashboardPage.firstName.sendKeys(ConfigReader.getProperty("Firstname"));
         spendingGoodDashboardPage.firstName.sendKeys(Keys.TAB, ConfigReader.getProperty("Lastname"));
+        spendingGoodDashboardPage.billingCompany.clear();
         spendingGoodDashboardPage.billingCompany.sendKeys(ConfigReader.getProperty("Company"));
 
         ReusableMethods.waitFor(5);
-       // spendingGoodDashboardPage.dropDownMenuTurkey.sendKeys(ConfigReader.getProperty("country"));
-        spendingGoodDashboardPage.streetAddress.clear();
-        spendingGoodDashboardPage.streetAddress.sendKeys(ConfigReader.getProperty("Street_Adresses"));
+
+       spendingGoodDashboardPage.selectionArrow1.click();
+       spendingGoodDashboardPage.dropDownMenuTurkey.sendKeys("Turkey",Keys.TAB);
+
+        ReusableMethods.waitFor(5);
+        spendingGoodDashboardPage.streetAddress1.clear();
+        spendingGoodDashboardPage.streetAddress1.sendKeys(ConfigReader.getProperty("Street_Adresses"));
         ReusableMethods.waitFor(5);
         spendingGoodDashboardPage.postCode.clear();
         spendingGoodDashboardPage.postCode.sendKeys(ConfigReader.getProperty("Postcode_ZIP"));
         ReusableMethods.waitFor(5);
         spendingGoodDashboardPage.billingTownCity.clear();
-        spendingGoodDashboardPage.billingTownCity.sendKeys(ConfigReader.getProperty("Town_City"));
-        ReusableMethods.waitFor(5);
+        spendingGoodDashboardPage.billingTownCity.sendKeys(ConfigReader.getProperty("townCity"));
+        ReusableMethods.waitFor(7);
 
+
+       ReusableMethods.selectFromDropdown(spendingGoodDashboardPage.province, "Ankara");
+//        spendingGoodDashboardPage.selectionArrow2.click();
+//       spendingGoodDashboardPage.province.sendKeys("Ankara",Keys.TAB);
 
         spendingGoodDashboardPage.phone.clear();
         spendingGoodDashboardPage.phone.sendKeys(ConfigReader.getProperty("Phone"));
@@ -79,10 +84,8 @@ public class US08TC01 {
 
         spendingGoodDashboardPage.phone.sendKeys(Keys.TAB,ConfigReader.getProperty("customer_email"));
         spendingGoodDashboardPage.placeOrderButton.submit();
+
         Assert.assertTrue(spendingGoodDashboardPage.orderCompleteMessage.isDisplayed());
 
-
     }
-
-
 }

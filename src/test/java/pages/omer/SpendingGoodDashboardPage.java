@@ -27,7 +27,7 @@ public class SpendingGoodDashboardPage {
     @FindBy(xpath = "//a[@data-product-id='20629']")
     public WebElement wishlistButton;
 
-    @FindBy(xpath = "//i[@class='w-icon-heart']")
+    @FindBy(xpath = "//a[@data-title='Browse wishlist...']")
     public WebElement hearthButton;
 
     @FindBy(xpath = "//h2[@class='page-title']")
@@ -57,11 +57,14 @@ public class SpendingGoodDashboardPage {
 
     @FindBy(xpath = "//input[@id='billing_company']")
     public WebElement billingCompany;
-    @FindBy(xpath="//span[@title='Turkey']")
+
+    @FindBy(xpath = "(//span[@class='select2-selection__arrow'])[1]")
+    public WebElement selectionArrow1;
+    @FindBy(xpath="//input[@class='select2-search__field']")
     public WebElement dropDownMenuTurkey;
 
     @FindBy(xpath = "//input[@id='billing_address_1']")
-    public WebElement streetAddress;
+    public WebElement streetAddress1;
 
     @FindBy(xpath="//input[@id='billing_postcode']")
     public WebElement postCode;
@@ -70,7 +73,7 @@ public class SpendingGoodDashboardPage {
     @FindBy(xpath = "//input[@id='billing_city']")
     public WebElement billingTownCity;
 
-    @FindBy(xpath = "//span[@class='select2-selection__placeholder']")
+    @FindBy(xpath = "//span[@title='Ankara']")
     public WebElement province;
 
     @FindBy(id="billing_phone")
